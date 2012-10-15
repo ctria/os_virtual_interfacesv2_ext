@@ -24,6 +24,10 @@ class VirtualInterface(base.Resource):
 class VirtualInterfaceManager(base.ManagerWithFind):
     resource_class = base.Resource
 
+    def list(self, instance_id):
+        return self._list("/servers/%s/os-virtual-interfaces" % instance_id,
+                         "virtual_interfaces")
+
     def create(self, network_id, instance_id):
         body = {'address': {'network_id': network_id,
                             'instance_id': instance_id}}
@@ -41,7 +45,7 @@ def do_virtual_interface_list(cs, args):
     """
     vifs = cs.os_virtual_interfaces_python_novaclient_ext.list(
                                                         args.instance_id)
-    utils.print_list(vifs, [])
+    utils.print_list(vifs, ["id", "mac_address"])
 
 
 @utils.arg('network_id', metavar='<network_id>',
