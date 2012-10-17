@@ -15,16 +15,16 @@
 import setuptools
 
 setuptools.setup(
-    name='os_virtual_interfaces_python_novaclient_ext',
+    name='os_virtual_interfacesv2_python_novaclient_ext',
     version='0.1',
     description='Adds Virtual Interfaces support to python-novaclient',
     long_description=open('README.rst').read(),
     author='Rackspace',
     author_email='matt.dietz@rackspace.com',
     url='https://github.com/rackspace/'
-        'os_virtual_interfaces_python_novaclient_ext',
+        'os_virtual_interfacesv2_python_novaclient_ext',
     license='Apache License, Version 2.0',
-    py_modules=['os_virtual_interfaces_python_novaclient_ext'],
+    py_modules=['os_virtual_interfacesv2_python_novaclient_ext'],
     install_requires=['python-novaclient'],
     classifiers=[
         'Development Status :: 3 - Alpha',
