@@ -59,7 +59,7 @@ def do_virtual_interface_list(cs, args):
     """
     Add a new virtual interface to an instance
     """
-    vifs = cs.os_virtual_interfaces_python_novaclient_ext.list(
+    vifs = cs.os_virtual_interfacesv2_python_novaclient_ext.list(
                                                         args.instance_id)
     utils.print_list(vifs, ["id", "mac_address", "ip_addresses"],
                      formatters={"ip_addresses": ip_address_formatter})
@@ -73,7 +73,7 @@ def do_virtual_interface_create(cs, args):
     """
     Add a new virtual interface to an instance
     """
-    addresses = cs.os_virtual_interfaces_python_novaclient_ext.create(
+    addresses = cs.os_virtual_interfacesv2_python_novaclient_ext.create(
                                                              args.network_id,
                                                              args.instance_id)
     for address in addresses:
@@ -92,5 +92,5 @@ def do_virtual_interface_delete(cs, args):
     """
     Removes the specified virtual interface from an instance
     """
-    cs.os_virtual_interfaces_python_novaclient_ext.delete(args.instance_id,
+    cs.os_virtual_interfacesv2_python_novaclient_ext.delete(args.instance_id,
                                                           args.interface_id)
