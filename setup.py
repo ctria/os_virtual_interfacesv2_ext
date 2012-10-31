@@ -16,7 +16,7 @@ import setuptools
 
 setuptools.setup(
     name='os_virtual_interfacesv2_python_novaclient_ext',
-    version='0.11',
+    version='0.12',
     description='Adds Virtual Interfaces support to python-novaclient',
     long_description=open('README.rst').read(),
     author='Rackspace',
