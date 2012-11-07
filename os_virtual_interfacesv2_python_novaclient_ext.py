@@ -57,7 +57,7 @@ def ip_address_formatter(field):
                 "interfaces for")
 def do_virtual_interface_list(cs, args):
     """
-    Add a new virtual interface to an instance
+    Lists the virtual interfaces for a specified server instance
     """
     vifs = cs.os_virtual_interfacesv2_python_novaclient_ext.list(
                                                         args.instance_id)
@@ -78,7 +78,7 @@ def do_virtual_interface_create(cs, args):
                                                              args.instance_id)
     for address in addresses:
         addr_list = [ip_dict_formatter(a) for a in address["ip_addresses"]]
-        addr_dict = {"id": address["uuid"],
+        addr_dict = {"id": address["id"],
                      "mac_address": address["address"],
                      "ip_addresses": ','.join(addr_list)}
         utils.print_dict(addr_dict)
