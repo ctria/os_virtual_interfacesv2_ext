@@ -79,7 +79,7 @@ def do_virtual_interface_create(cs, args):
     for address in addresses:
         addr_list = [ip_dict_formatter(a) for a in address["ip_addresses"]]
         addr_dict = {"id": address["id"],
-                     "mac_address": address["address"],
+                     "mac_address": address["mac_address"],
                      "ip_addresses": ','.join(addr_list)}
         utils.print_dict(addr_dict)
 
