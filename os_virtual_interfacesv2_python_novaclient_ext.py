@@ -16,11 +16,6 @@ from novaclient import base
 from novaclient.openstack.common import cliutils
 from novaclient import utils
 
-try:
-    from novaclient.openstack.common import cliutils
-except ImportError:
-    cliutils = utils
-
 
 class VirtualInterface(base.Resource):
     def create(self):
@@ -58,7 +53,7 @@ def ip_address_formatter(field):
     return ",".join(addresses)
 
 
-@cliutils.arg('instance_id', metavar='<instance_id>',
+@utils.arg('instance_id', metavar='<instance_id>',
            help="ID of the instance you want to display virtual"
                 "interfaces for")
 def do_virtual_interface_list(cs, args):
@@ -71,9 +66,9 @@ def do_virtual_interface_list(cs, args):
                      formatters={"ip_addresses": ip_address_formatter})
 
 
-@cliutils.arg('network_id', metavar='<network_id>',
+@utils.arg('network_id', metavar='<network_id>',
            help='Network ID to connect the new virtual interface to')
-@cliutils.arg('instance_id', metavar='<instance_id>',
+@utils.arg('instance_id', metavar='<instance_id>',
            help="Instance to attach the new virtual interface to")
 def do_virtual_interface_create(cs, args):
     """
@@ -90,9 +85,9 @@ def do_virtual_interface_create(cs, args):
         utils.print_dict(addr_dict)
 
 
-@cliutils.arg('instance_id', metavar='<instance_id>',
+@utils.arg('instance_id', metavar='<instance_id>',
            help="Instance to remove the virtual interface from")
-@cliutils.arg('interface_id', metavar='<interface_id>',
+@utils.arg('interface_id', metavar='<interface_id>',
            help='ID of the virtual interface to delete')
 def do_virtual_interface_delete(cs, args):
     """
