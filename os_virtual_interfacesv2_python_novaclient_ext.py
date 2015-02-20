@@ -13,6 +13,7 @@
 # limitations under the License.
 
 from novaclient import base
+from novaclient.openstack.common import cliutils
 from novaclient import utils
 
 try:
