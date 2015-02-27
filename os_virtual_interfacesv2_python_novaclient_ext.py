@@ -27,7 +27,7 @@ class VirtualInterfaceManager(base.ManagerWithFind):
 
     def list(self, instance_id):
         return self._list("/servers/%s/os-virtual-interfacesv2" % instance_id,
-                         "virtual_interfaces")
+                          "virtual_interfaces")
 
     def create(self, network_id, instance_id):
         body = {'virtual_interface': {'network_id': network_id}}
@@ -61,7 +61,7 @@ def do_virtual_interface_list(cs, args):
     Lists the virtual interfaces for a specified server instance
     """
     vifs = cs.os_virtual_interfacesv2_python_novaclient_ext.list(
-                                                        args.instance_id)
+        args.instance_id)
     utils.print_list(vifs, ["id", "mac_address", "ip_addresses"],
                      formatters={"ip_addresses": ip_address_formatter})
 
@@ -75,8 +75,8 @@ def do_virtual_interface_create(cs, args):
     Add a new virtual interface to an instance
     """
     addresses = cs.os_virtual_interfacesv2_python_novaclient_ext.create(
-                                                             args.network_id,
-                                                             args.instance_id)
+        args.network_id,
+        args.instance_id)
     for address in addresses:
         addr_list = [ip_dict_formatter(a) for a in address["ip_addresses"]]
         addr_dict = {"id": address["id"],
@@ -94,4 +94,4 @@ def do_virtual_interface_delete(cs, args):
     Removes the specified virtual interface from an instance
     """
     cs.os_virtual_interfacesv2_python_novaclient_ext.delete(args.instance_id,
-                                                          args.interface_id)
+                                                            args.interface_id)
