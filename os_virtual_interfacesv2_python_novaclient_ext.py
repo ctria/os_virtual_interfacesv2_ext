@@ -58,7 +58,7 @@ def ip_address_formatter(field):
                    "interfaces for")
 def do_virtual_interface_list(cs, args):
     """
-    Lists the virtual interfaces for a specified server instance
+    Lists the virtual interfaces for an instance
     """
     vifs = cs.os_virtual_interfacesv2_python_novaclient_ext.list(
         args.instance_id)
